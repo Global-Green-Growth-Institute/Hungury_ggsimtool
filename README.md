@@ -9,7 +9,7 @@ The goal of this application is to display the simulation results. The app is di
 ## Installation
 -------------------
 ```
-$ git clone --single-branch –branch network_sharp_dashboard  https://github.com/Global-Green-Growth-Institute/IndexSimilationDashboard.git 
+$ git clone https://github.com/Global-Green-Growth-Institute/Hungury_ggsimtool.git
 
 $ python index.py
 ```
@@ -19,7 +19,7 @@ $ python index.py
 The app can be deployed on Heroku via:
 
 ```
-$ git push heroku network_sharp_dashboard
+$ git push heroku Hungury_ggsimtool
 ```
 
 Go to https://devcenter.heroku.com/articles/git for more details
@@ -58,10 +58,12 @@ Features:
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 # Contact
----------------
+----------------
 Program Manager: A. Lilibeth - lilibeth.acosta@gggi.org<br>
 Programmer: I. Nzimenyera - innocent.nzimenyera@gggi.org<br>
 Programmer: R. Mihigo - munezero.ribeus@gggi.org<br>
 Programmer: A. Ipkovich - ipkovichadam@gmail.com<br>
-Data Analsyt: R. Sabado - ruben.jr@gggi.org'
+Data Analsyt: R. Sabado - ruben.jr@gggi.org<br>
+Analsyt: J. Julia - julia.joveneau@gggi.org
+
 
