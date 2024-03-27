@@ -1,0 +1,1285 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>main_v6 API documentation</title>
+<meta name="description" content="This module is a singleton containing all computations. There are supporting methods in vizu.py and wrappers.py
+The function of this module is to …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>main_v6</code></h1>
+</header>
+<section id="section-intro">
+<p>This module is a singleton containing all computations. There are supporting methods in vizu.py and wrappers.py
+The function of this module is to export figures so that it can be used in the website.
+NOTE: This is a very long script, but it is not complicated. It is just a lot of data wrangling and calculations.
+THERE ARE REDUNDANT PARTS IN THE CODE, BUT IT IS EASIER TO HANDLE THIS WAY!
+NOTE: THIS IS NOT INTEGRATED WITH GRAPHMODELS YET!
+NOTE: SHAP-BASED ANALYSIS CANNOT BE A RUNTIME FEATURE, BECAUSE IT IS TOO SLOW!</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;This module is a singleton containing all computations. There are supporting methods in vizu.py and wrappers.py
+The function of this module is to export figures so that it can be used in the website.
+NOTE: This is a very long script, but it is not complicated. It is just a lot of data wrangling and calculations.
+THERE ARE REDUNDANT PARTS IN THE CODE, BUT IT IS EASIER TO HANDLE THIS WAY!
+NOTE: THIS IS NOT INTEGRATED WITH GRAPHMODELS YET!
+NOTE: SHAP-BASED ANALYSIS CANNOT BE A RUNTIME FEATURE, BECAUSE IT IS TOO SLOW!
+&#34;&#34;&#34;
+
+__author__ = &#34;Ádám Ipkovich&#34;
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.metrics import r2_score
+from sklearn.linear_model import LinearRegression
+import warnings
+import os
+import pickle
+from functools import partial
+
+from utils import *
+
+warnings.filterwarnings(&#34;ignore&#34;)
+
+height_rice = 0.2  # meter height of rice
+ha_to_m2 = 1e4
+mm_to_m = 1e-2
+mmyear_to_m3year = 1e-2  # from mm/year to m3/year as 1mm = 10m3/ha \n&#34;,
+
+#%% Read Data
+
+address = os.path.join(os.getcwd(), &#34;shap_backend&#34;, &#34;data_new5_n.xlsx&#34;)
+xls = pd.ExcelFile(address) # read excel file
+
+outs, data_desc, data = read_EW_data(address)
+# %% Initialize global variables !!!
+val_data = data
+input_vars = {}
+expl = {}
+shapley = {}
+change_expl = {}
+##So that we can use the global variables in the functions without manually adding them to each one.
+ShapNet = partial(TSFunc, input_vars = input_vars, expl = expl, shapley = shapley, change_expl = change_expl )
+
+#%% EW1 model
+########################################
+
+# generally speaking there are 2 parts of evaluation:
+# define the model
+# then use the evaluation function to calculate the shapley values
+# CODE SAVES EVERYTHING IN A GLOBAL VARIABLE TO EXPORT AND USE IN THE WEBSITE IF NEED BE!!!!
+
+#%% CI
+
+    
+def CI(X): #ICA, AIR
+    params =  data[&#34;ICA&#34;].reset_index(drop=True).iloc[idx].values[0] 
+    return params/X.loc[:, [&#34;AIR&#34;]].reset_index(drop = True)
+
+out_var = &#34;CI&#34;  
+df = data[&#34;AIR&#34;]
+
+data[out_var] = pd.DataFrame()
+items = data[&#34;ICA&#34;].unstack(1).columns.tolist()
+for idx, i in enumerate(items):
+    i = i[1]
+    dy = ShapNet(out_var, df, func = CI, item = i)
+    dy.columns = [out_var + &#34;_&#34; + i]
+    if data[out_var].empty:
+        data[out_var] = dy
+    else:
+        data[out_var] = pd.concat([data[out_var].reset_index(drop=True), dy.reset_index(drop=True)], axis = 1)     
+
+#%% ETc
+
+def ETc(X): # Kc, CI, ETo
+    params = np.repeat(data[&#34;Kc&#34;].values, X.shape[0], axis=1).transpose()
+    y =  np.sum(params*X.iloc[:, 1::] * np.repeat(X.loc[:, [&#34;ETo&#34;]].values, 9, axis = 1), axis=1)
+    return y
+
+
+out_var = &#34;ETc&#34; 
+df = pd.concat([data[&#34;ETo&#34;].reset_index(drop=True),  data[&#34;CI&#34;].reset_index(drop=True)], axis = 1)
+params = np.repeat(data[&#34;Kc&#34;].values, data[&#34;ETo&#34;].shape[0], axis=1).transpose()
+data[out_var] = ShapNet(out_var, df, func = ETc)
+
+data[out_var].name = out_var
+#%% ICU
+def ICU(X):
+    return np.abs(X.loc[:, &#34;ETc&#34;] - X.loc[:, &#34;ETa&#34;])
+
+out_var = &#34;ICU&#34;
+df = pd.concat([data[&#34;ETc&#34;],  data[&#34;ETa&#34;].reset_index(drop=True)], axis = 1)
+data[out_var] = ShapNet(out_var, df, func = ICU)
+data[out_var].name = out_var
+#%% AIRi - &#34;IRRTECHi&#34;,&#34;AIR&#34;
+
+def AIRi(X):
+    return X.iloc[:, 1] * X.loc[:, &#34;AIR&#34;]
+
+out_var = &#34;AIRi&#34;
+df = data[&#34;AIR&#34;]
+dum = data[&#34;IRRTECHi&#34;].unstack(level=2)
+items = [&#34;IRRTECHi_&#34; + i[1] for i in dum.columns.tolist()]
+dum.columns = items
+expl[out_var] = {}
+shapley[out_var] = {}
+
+data[out_var] = pd.DataFrame()
+input_vars[out_var] = []
+for i in items:
+    
+    dx = pd.concat((df, dum.loc[:, i]), axis = 1).reset_index(drop=True)
+
+    input_vars[out_var + &#34;_&#34; + i.split(&#34;_&#34;)[1]] = dx.columns.to_list()
+    dy = ShapNet(out_var, dx, func = AIRi, item = i)
+    dy.name = out_var + &#34;_&#34; + i.split(&#34;_&#34;)[1]
+
+    if data[out_var].empty:
+        data[out_var] = dy.to_frame()
+    else:
+        data[out_var] = pd.concat([data[out_var], dy], axis = 1)    
+
+
+#%% IWRi
+
+def IWRi(X): # ICU, AIRi - changes
+    return 1e-9 * ha_to_m2 * mmyear_to_m3year *  X.loc[:, &#34;ICU&#34;] * X.iloc[:, 1]
+
+out_var = &#34;IWRi&#34;
+df = data[&#34;ICU&#34;].to_frame()
+
+expl[out_var] = {}
+shapley[out_var] = {}
+input_vars[out_var] = []
+data[out_var] = pd.DataFrame()
+for i in data[&#34;AIRi&#34;].columns:
+    dx = pd.concat([df.reset_index(drop=True), data[&#34;AIRi&#34;].loc[:, i]], axis = 1).reset_index(drop=True)
+    input_vars[out_var + &#34;_&#34; + i.split(&#34;_&#34;)[1]] = dx.columns.to_list()
+    dy = ShapNet(out_var, dx, func = IWRi, item = i)
+    dy.name = out_var + &#34;_&#34; + i.split(&#34;_&#34;)[1]
+    if data[out_var].empty:
+        data[out_var] = dy.to_frame()
+    else:
+        data[out_var] = pd.concat([data[out_var], dy], axis = 1) 
+        
+#%% IWW
+
+def IWW(X): # IWRi! Arice, IRRTECHEFFi
+    params =  np.repeat(data[&#34;IRRTECHEFFi&#34;].values, X.shape[0], axis=1).transpose()# np.multiply( ,  np.repeat(data[&#34;CE&#34;].values, X.shape[0], axis=1).transpose())
+    return np.sum(X.iloc[:, 0:3]/params, axis = 1) + X.loc[:, &#34;Arice&#34;]* height_rice
+
+out_var = &#34;IWW&#34;
+df = pd.concat([data[&#34;IWRi&#34;], data[&#34;Arice&#34;].reset_index(drop=True)], axis = 1)
+
+data[out_var] = ShapNet(out_var, df, func = IWW)
+data[out_var].name = out_var
+#%% AWU
+def AWU(X):
+    return X
+
+out_var = &#34;AWU&#34;
+df = data[&#34;IWW&#34;].to_frame()
+dd = ShapNet(out_var, df, func = AWU)
+
+dd.columns = [out_var]
+data[out_var] = dd
+#%% MWU
+
+def MWU(X):
+    return np.exp(-0.9522) *  X.loc[:, &#34;WP&#34;]**(- 0.3174)  * X.loc[:, &#34;GDPC&#34;]**0.5918827 * X.loc[:, &#34;Pop&#34;]**(0.9859812) * 1e-9
+
+
+out_var = &#34;MWU&#34;
+df = pd.DataFrame()
+df = data[&#34;WP&#34;]
+df = pd.concat([df, data[&#34;GDPC&#34;], data[&#34;Pop&#34;]], axis = 1)
+
+data[out_var] = ShapNet(out_var, df, func = MWU)
+data[out_var].name = out_var
+#%%TWW
+
+def TWW(X):
+    return np.sum(X, axis=1)
+
+out_var = &#34;TWW&#34;
+df = pd.DataFrame()
+df = data[&#34;MWU&#34;].to_frame().reset_index(drop = True)
+df = pd.concat([df, data[&#34;AWU&#34;].reset_index(drop = True), data[&#34;IWU&#34;].reset_index(drop = True)], axis = 1)
+data[out_var] = ShapNet(out_var, df, func = TWW)
+data[out_var].name= out_var
+
+#%% PAIR
+
+def PAIR(X): #ICA is a parameter - only input CL
+    params = data[&#34;ICA&#34;].reset_index(drop=True)
+    return np.sum(params)[0]/X.reset_index(drop=True)
+out_var = &#34;PAIR&#34;
+df = data[&#34;CL&#34;]
+data[out_var] = ShapNet(out_var, df, func = PAIR)
+data[out_var].columns = [out_var]
+#%% Cr
+
+def Cr(X): # only input PAIR
+    return 1/(1+(X/(1-X)*0.563))
+
+out_var = &#34;Cr&#34;
+df = data[&#34;PAIR&#34;]
+data[out_var] = ShapNet(out_var, df, func = Cr)
+data[out_var].columns = [out_var]
+#%% EW1
+def EW1(X): # inputs: TWW, AGVA, IGVA, SGVA, Cr
+    return  (X.loc[:, &#34;AGVA&#34;] * (1 - X.loc[:, &#34;Cr&#34;]) + X.loc[:, &#34;IGVA&#34;] + X.loc[:, &#34;SGVA&#34;]) / (X.loc[:, &#34;TWW&#34;]* 1e9)
+
+out_var = &#34;EW1&#34;
+df = pd.concat([data[&#34;TWW&#34;].reset_index(drop=True), data[&#34;AGVA&#34;].reset_index(drop=True), data[&#34;IGVA&#34;].reset_index(drop=True), data[&#34;SGVA&#34;].reset_index(drop=True), data[&#34;Cr&#34;].reset_index(drop=True)], axis = 1)
+data[out_var] = ShapNet(out_var, df, func = EW1)
+data[out_var].columns = [out_var]
+
+
+#%% EW2
+################################################
+#%%TRF - two constants...
+def TRF(X): # IRWR, ERWR
+    return X.loc[:, &#34;IRWR&#34;] + X.loc[:,  &#34;ERWR&#34;]
+
+out_var = &#34;TRF&#34;
+df = pd.concat([data[&#34;IRWR&#34;].reset_index(drop=True), data[&#34;ERWR&#34;].reset_index(drop=True)], axis = 1)
+data[out_var] = ShapNet(out_var, df, func = TRF)
+data[out_var].name = out_var
+
+#%% TNCW
+
+def TNCW(X): # DW, TW
+    return X.loc[:, &#34;DW&#34;] + X.loc[:, &#34;TW&#34;]
+
+out_var = &#34;TNCW&#34;
+df = pd.concat([data[&#34;DW&#34;].reset_index(drop=True), data[&#34;TW&#34;].reset_index(drop=True)], axis = 1)
+data[out_var] = ShapNet(out_var, df, func = TNCW)
+data[out_var].name = out_var
+
+#%% TFA
+
+def TFA(X): # TRF, TNCW
+    return X.loc[:, &#34;TRF&#34;] + X.loc[:, &#34;TNCW&#34;]
+
+out_var = &#34;TFA&#34;
+df = pd.concat([data[&#34;TRF&#34;].reset_index(drop=True), data[&#34;TNCW&#34;].reset_index(drop=True)], axis = 1)
+data[out_var] = ShapNet(out_var, df, func = TFA)
+data[out_var].name = out_var
+
+
+#%% EW2
+
+def EW2(X): # TWW, TFA, EFR
+    params = data[&#34;EFR&#34;].iloc[0][0]
+    return X.loc[:, &#34;TWW&#34;] / (X.loc[:, &#34;TFA&#34;] -params)*1e2 
+
+out_var = &#34;EW2&#34;
+df = pd.concat([data[&#34;TWW&#34;].reset_index(drop=True), data[&#34;TFA&#34;]], axis = 1)
+data[out_var] = ShapNet(out_var, df, func = EW2)
+data[out_var].columns = [out_var]
+
+
+
+#%% Indirect Shapley - ONE FUNCTION CONTAINS ALL COMPUTATIONS!
+
+def EW1_wrapper(X):
+    
+    n_data = X.reset_index(drop=True)
+    out_var = &#34;CI&#34;  
+    df = n_data.loc[:, [&#34;AIR&#34;]].reset_index(drop=True)
+    
+    items = data[&#34;ICA&#34;].unstack(1).columns.tolist()
+    for idx, i in enumerate(items):
+        dy = eval(out_var + &#34;(df)&#34;)
+        dy.columns =[ out_var + &#34;_&#34; + i[1]]
+        n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)
+    
+    # ETc
+    out_var = &#34;ETc&#34; 
+    df = n_data.loc[:, [&#34;ETo&#34;,
+                        &#39;CI_fruit&#39;,
+                        &#39;CI_maize&#39;,
+                        &#39;CI_pastures&#39;,
+                        &#39;CI_potatoes&#39;,
+                        &#39;CI_pulses&#39;,
+                        &#39;CI_rapeseed&#39;,
+                        &#39;CI_sugar beet&#39;,
+                        &#39;CI_sunflower&#39;,
+                        &#39;CI_vegetables&#39;]]
+    dy = eval(out_var + &#34;(df)&#34;)
+    dy.name = out_var
+    n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)
+    
+    
+    out_var = &#34;ICU&#34;
+    df = n_data.loc[:, [&#34;ETc&#34;, &#34;ETa&#34;]]   
+    dy = eval(out_var + &#34;(df)&#34;)
+    dy.name = out_var
+    n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)
+    
+    out_var = &#34;AIRi&#34;
+    df = n_data.loc[:, [&#34;AIR&#34;]].reset_index(drop=True)
+    items = [&#34;IRRTECHi_&#34; + i for i in [&#34;Drip&#34;, &#34;Sprinkler&#34;, &#34;Surface&#34;]]
+
+    for i in items:
+        dx = pd.concat((df, n_data.loc[:, [i]].reset_index(drop=True)), axis = 1)
+        dy = eval(out_var + &#34;(dx)&#34;)
+        dy.name = out_var + &#34;_&#34; + i.split(&#34;_&#34;)[1]
+        n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)
+    
+    out_var = &#34;IWRi&#34;
+    df = n_data.loc[:, [&#34;ICU&#34;]]
+    for i in data[&#34;AIRi&#34;].columns:
+        dx = pd.concat([df.reset_index(drop=True), n_data.loc[:, [i]]], axis = 1).reset_index(drop=True)
+        dy = eval(out_var + &#34;(dx)&#34;)
+        dy.name = out_var + &#34;_&#34; + i.split(&#34;_&#34;)[1]
+        n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)
+    
+    
+    out_var = &#34;IWW&#34;
+    df = n_data.loc[:, [&#34;IWRi_Drip&#34;, &#34;IWRi_Sprinkler&#34;, &#34;IWRi_Surface&#34;, &#34;Arice&#34;]] 
+    dy = eval(out_var + &#34;(df)&#34;)
+    dy.name = out_var
+    n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)
+    
+    out_var = &#34;AWU&#34;
+    df = n_data.loc[:, [&#34;IWW&#34;]]
+    dy = eval(out_var + &#34;(df)&#34;)
+    dy.columns = [out_var]
+    n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)
+    
+    out_var = &#34;MWU&#34;
+    df = n_data.loc[:, [&#34;WP&#34;, &#34;GDPC&#34;, &#34;Pop&#34;]]
+    dy = eval(out_var + &#34;(df)&#34;)
+    dy.name = out_var
+    n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)
+
+    out_var = &#34;TWW&#34;
+    df = n_data.loc[:, [&#34;MWU&#34;, &#34;AWU&#34;, &#34;IWU&#34;]].reset_index(drop = True)
+    dy = eval(out_var + &#34;(df)&#34;)
+    dy.name = out_var
+    n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)    
+
+    out_var = &#34;PAIR&#34;
+    df = n_data.loc[:, [&#34;CL&#34;]]
+    dy = eval(out_var + &#34;(df)&#34;)
+    dy.columns = [out_var]
+    n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)  
+    
+    out_var = &#34;Cr&#34;
+    df = df = n_data.loc[:, [&#34;PAIR&#34;]]
+    dy = eval(out_var + &#34;(df)&#34;)
+    dy.columns = [out_var]
+    n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)
+    
+    out_var = &#34;EW1&#34;
+    df = n_data.loc[:, [&#34;TWW&#34;, &#34;AGVA&#34;, &#34;IGVA&#34;, &#34;SGVA&#34;, &#34;Cr&#34;]] 
+    dy = eval(out_var + &#34;(df)&#34;)
+    dy.name = out_var
+    
+    return dy
+
+#%%
+
+ew1_vars = [&#34;AIR&#34;, &#34;ETo&#34;, &#34;ETa&#34;, &#34;IRRTECHi&#34;, &#34;Arice&#34;, &#34;WP&#34;, &#34;GDPC&#34;, &#34;Pop&#34;, &#34;CL&#34;, &#34;IWU&#34;, &#34;AGVA&#34;, &#34;IGVA&#34;, &#34;SGVA&#34;]
+ew1_data = pd.DataFrame()
+for i in ew1_vars:
+    
+    n_v = []
+    if i == &#34;IRRTECHi&#34;:
+       n_v = val_data[i].unstack(level=2)
+       n_v.columns = [&#34;IRRTECHi_Drip&#34;, &#34;IRRTECHi_Sprinkler&#34;, &#34;IRRTECHi_Surface&#34;]
+    else:
+       n_v = val_data[i]
+    
+    if ew1_data.empty:
+        ew1_data = n_v
+    else:
+        ew1_data = pd.concat((ew1_data, n_v), axis = 1)
+
+ew1_data = pd.DataFrame(ew1_data)
+
+ex_ew1 = shap.Explainer(EW1_wrapper, ew1_data.reset_index(drop=True))
+sv_ew1 = ex_ew1(ew1_data.reset_index(drop=True))
+
+
+### Visualie indirect shapley (input varaible contributions to the output WITHOUT intermediate variables)
+plt.figure(2)
+shap.plots.waterfall(sv_ew1[17], max_display=14)
+shap.plots.bar(sv_ew1)
+shap.plots.beeswarm(sv_ew1)
+
+
+#%% EW2 wrapper
+
+def EW2_wrapper(X):
+    n_data = X.reset_index(drop=True)
+    out_var = &#34;CI&#34;  
+    df = n_data.loc[:, [&#34;AIR&#34;]].reset_index(drop=True)
+    
+    items = data[&#34;ICA&#34;].unstack(1).columns.tolist()
+    for idx, i in enumerate(items):
+        dy = eval(out_var + &#34;(df)&#34;)
+        dy.columns = [out_var + &#34;_&#34; + i[1]]
+        n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)
+    
+    # ETc
+    out_var = &#34;ETc&#34; 
+    df = n_data.loc[:, [&#34;ETo&#34;,
+                        &#39;CI_fruit&#39;,
+                        &#39;CI_maize&#39;,
+                        &#39;CI_pastures&#39;,
+                        &#39;CI_potatoes&#39;,
+                        &#39;CI_pulses&#39;,
+                        &#39;CI_rapeseed&#39;,
+                        &#39;CI_sugar beet&#39;,
+                        &#39;CI_sunflower&#39;,
+                        &#39;CI_vegetables&#39;]]
+    dy = eval(out_var + &#34;(df)&#34;)
+    dy.name = out_var
+    n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)
+    
+    
+    out_var = &#34;ICU&#34;
+    df = n_data.loc[:, [&#34;ETc&#34;, &#34;ETa&#34;]]   
+    dy = eval(out_var + &#34;(df)&#34;)
+    dy.name = out_var
+    n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)
+    
+    out_var = &#34;AIRi&#34;
+    df = n_data.loc[:, [&#34;AIR&#34;]].reset_index(drop=True)
+    items = [&#34;IRRTECHi_&#34; + i for i in [&#34;Drip&#34;, &#34;Sprinkler&#34;, &#34;Surface&#34;]]
+
+    for i in items:
+        dx = pd.concat((df, n_data.loc[:, [i]].reset_index(drop=True)), axis = 1)
+        dy = eval(out_var + &#34;(dx)&#34;)
+        dy.name = out_var + &#34;_&#34; + i.split(&#34;_&#34;)[1]
+        n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)
+    
+    out_var = &#34;IWRi&#34;
+    df = n_data.loc[:, [&#34;ICU&#34;]]
+    for i in data[&#34;AIRi&#34;].columns:
+        dx = pd.concat([df.reset_index(drop=True), n_data.loc[:, [i]]], axis = 1).reset_index(drop=True)
+        dy = eval(out_var + &#34;(dx)&#34;)
+        dy.name = out_var + &#34;_&#34; + i.split(&#34;_&#34;)[1]
+        n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)
+    
+    
+    out_var = &#34;IWW&#34;
+    df = n_data.loc[:, [&#34;IWRi_Drip&#34;, &#34;IWRi_Sprinkler&#34;, &#34;IWRi_Surface&#34;, &#34;Arice&#34;]] 
+    dy = eval(out_var + &#34;(df)&#34;)
+    dy.name = out_var
+    n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)
+    
+    out_var = &#34;AWU&#34;
+    df = n_data.loc[:, [&#34;IWW&#34;]]
+    dy = eval(out_var + &#34;(df)&#34;)
+    dy.columns = [out_var]
+    n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)
+    
+    out_var = &#34;AWU&#34;
+    df = n_data.loc[:, [&#34;IWW&#34;]]
+    dy = eval(out_var + &#34;(df)&#34;)
+    dy.columns = [out_var]
+    n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)
+    
+    out_var = &#34;MWU&#34;
+    df = n_data.loc[:, [&#34;WP&#34;, &#34;GDPC&#34;, &#34;Pop&#34;]]
+    dy = eval(out_var + &#34;(df)&#34;)
+    dy.name = out_var
+    n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)
+
+    out_var = &#34;TWW&#34;
+    df = n_data.loc[:, [&#34;MWU&#34;, &#34;AWU&#34;, &#34;IWU&#34;]].reset_index(drop = True)
+    dy = eval(out_var + &#34;(df)&#34;)
+    dy.name = out_var
+    n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)    
+    
+    out_var = &#34;TRF&#34;
+    df = n_data.loc[:, [&#34;IRWR&#34;, &#34;ERWR&#34;]]
+    dy = eval(out_var + &#34;(df)&#34;)
+    dy.name = out_var
+    n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)    
+    
+    out_var = &#34;TNCW&#34;
+    df = n_data.loc[:, [&#34;DW&#34;, &#34;TW&#34;]] 
+    dy = eval(out_var + &#34;(df)&#34;)
+    dy.name = out_var
+    n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)   
+    
+    out_var = &#34;TFA&#34;
+    df = n_data.loc[:, [&#34;TRF&#34;, &#34;TNCW&#34;]]
+    dy = eval(out_var + &#34;(df)&#34;)
+    dy.name = out_var
+    n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)
+    
+    out_var = &#34;EW2&#34;
+    df = n_data.loc[:, [&#34;TWW&#34;, &#34;TFA&#34;]]
+    dy = eval(out_var + &#34;(df)&#34;)
+    dy.name = out_var
+    return dy
+
+#%% Evaluation of models
+
+ew2_vars = [&#34;AIR&#34;, &#34;ETo&#34;, &#34;ETa&#34;, &#34;IRRTECHi&#34;, &#34;Arice&#34;, &#34;IWU&#34;, &#34;WP&#34;, &#34;GDPC&#34;, &#34;Pop&#34;, &#34;IRWR&#34;, &#34;ERWR&#34;, &#34;DW&#34;, &#34;TW&#34;]
+ew2_data = pd.DataFrame()
+for i in ew2_vars:
+    
+    n_v = []
+    if i == &#34;IRRTECHi&#34;:
+       n_v = val_data[i].unstack(level=2)
+       n_v.columns = [&#34;IRRTECHi_Drip&#34;, &#34;IRRTECHi_Sprinkler&#34;, &#34;IRRTECHi_Surface&#34;]
+    else:
+       n_v = val_data[i]
+    
+    if ew2_data.empty:
+        ew2_data = n_v
+    else:
+        ew2_data = pd.concat((ew2_data, n_v), axis = 1)
+
+ew2_data = pd.DataFrame(ew2_data)
+
+ex_ew2 = shap.Explainer(EW2_wrapper, ew2_data.reset_index(drop=True))
+sv_ew2 = ex_ew2(ew2_data.reset_index(drop=True))
+
+plt.figure(3)
+shap.plots.waterfall(sv_ew2[17], max_display=14)
+shap.plots.bar(sv_ew2)
+shap.plots.beeswarm(sv_ew2)
+
+#######################################################
+#%%MACHINE LEARNING SECTION TO CHECK THE RESULTS
+
+#%%EW1 ML
+reg = LinearRegression().fit(ew1_data.reset_index(drop=True).iloc[0:10, :], outs[&#34;EW1&#34;].iloc[0:10])
+lr_ew1 =reg.predict(ew1_data.reset_index(drop=True))
+ex = shap.Explainer(reg.predict, ew1_data.reset_index(drop=True))
+shapley[&#34;EW1_LR&#34;] = ex(ew1_data.reset_index(drop=True))
+
+from sklearn.neighbors import KNeighborsRegressor
+neigh = KNeighborsRegressor(n_neighbors=3)
+neigh.fit(ew1_data.iloc[:, :], outs[&#34;EW1&#34;].iloc[:])
+knn_ew1 = neigh.predict(ew1_data.reset_index(drop=True))
+
+print(r2_score(outs[&#34;EW1&#34;], lr_ew1))
+
+#%%EW2 LR
+reg = LinearRegression().fit(ew2_data.reset_index(drop=True).iloc[0:10, :], outs[&#34;EW2&#34;].iloc[0:10, :])
+lr_ew2 =reg.predict(ew2_data.reset_index(drop=True))
+ex = shap.Explainer(reg, ew2_data.reset_index(drop=True))
+shapley[&#34;EW2_LR&#34;] = ex(ew2_data.reset_index(drop=True))
+
+#%% knn ew2
+
+neigh = KNeighborsRegressor(n_neighbors=3)
+neigh.fit(ew2_data.iloc[:, :], outs[&#34;EW2&#34;].iloc[:])
+knn_ew2 = neigh.predict(ew2_data.reset_index(drop=True))
+
+#%% MWU parameter optimization -- THIS IS AN EXAMPLE TO IMPROVE THE MODEL!
+from scipy.optimize import minimize
+from scipy.optimize import basinhopping
+
+def param_opt_ew1(theta, X, ind):
+    mwu = np.exp(theta[0]) *  X[&#34;WP&#34;].reset_index(drop=True).squeeze()[ind[0]:ind[1]]**(theta[1]) * X[&#34;GDPC&#34;].reset_index(drop=True).squeeze()[ind[0]:ind[1]]**theta[2]*X[&#34;Pop&#34;].reset_index(drop=True).squeeze()[ind[0]:ind[1]] **(theta[3]) * 1e-9
+    #mwu = np.exp(theta[0] + theta[1] * np.log(X[&#34;WP&#34;].reset_index(drop=True)).squeeze()[ind[0]:ind[1]] + theta[2] * np.log(X[&#34;GDPC&#34;].reset_index(drop=True)).squeeze()[ind[0]:ind[1]] + theta[3] * np.log(X[&#34;Pop&#34;].reset_index(drop=True)).squeeze()[ind[0]:ind[1]] ) * 1e-9
+    tww = mwu.reset_index(drop = True).squeeze()  + X[&#34;AWU&#34;].squeeze().reset_index(drop = True)[ind[0]:ind[1]].reset_index(drop = True)  + X[&#34;IWU&#34;].reset_index(drop = True).squeeze()[ind[0]:ind[1]].reset_index(drop = True)
+    cr = 1/(1+(X[&#34;PAIR&#34;].reset_index(drop = True)[ind[0]:ind[1]].reset_index(drop = True) /(1-X[&#34;PAIR&#34;].reset_index(drop = True))[ind[0]:ind[1]].reset_index(drop = True) *0.562))
+    return (X[&#34;AGVA&#34;].reset_index(drop = True).squeeze()[ind[0]:ind[1]].reset_index(drop = True)  * (1 - cr.squeeze().reset_index(drop = True)) 
+            + X[&#34;IGVA&#34;].reset_index(drop = True).squeeze()[ind[0]:ind[1]].reset_index(drop = True) 
+            + X[&#34;SGVA&#34;].reset_index(drop = True).squeeze()[ind[0]:ind[1]] .reset_index(drop = True))  /(tww.reset_index(drop = True) * 1e9), tww.reset_index(drop = True) 
+
+def param_opt_ew2(TWW, ind):
+    return TWW / (data[&#34;TFA&#34;][ind[0]:ind[1]].reset_index(drop = True)  -data[&#34;EFR&#34;].iloc[0][0])*1e2 
+
+
+def param_opt_func(theta, *args):
+    X, y_ew1, y_ew2, ind = args
+    y_hat_ew1, tww = param_opt_ew1(theta, X, ind)
+    y_hat_ew2 = param_opt_ew2(tww.squeeze(), ind)
+    print(np.mean((y_ew1.values-y_hat_ew1.values)**2) + np.mean((y_ew2.values-y_hat_ew2.values)**2)*20)
+    return np.mean((y_ew1.values-y_hat_ew1.values)**2) + np.mean((y_ew2.values-y_hat_ew2.values)**2)*20
+    
+
+#minimizer_kwargs = {&#34;method&#34;:&#34;L-BFGS-B&#34;, &#34;args&#34;  : (data, outs[&#34;EW1&#34;], outs[&#34;EW2&#34;], (0, 20)), &#34;bounds&#34; : ( (-1000, 0), (-1000, 0), (0, 1000), (0, 1000)) } #&#34;bounds&#34; : ((-10, 10), (-10, 10), (-10, 10), (-10, 10))
+res =  minimize(param_opt_func, [-0.9522 ,- 0.3174, 0.5918827, 0.9859812, 0.563], args= (data, outs[&#34;EW1&#34;], outs[&#34;EW2&#34;], (0, 20)), method=&#39;L-BFGS-B&#39;, bounds=((-0.953, -0.95) ,(- 0.317, - 0.31), (0.58,0.6) , (0.92, 1), (0.55, 0.57))) #&#34;L-BFGS-B&#34;
+opt_ew1, tww= param_opt_ew1(res.x, data, (0, 20))
+#((-0.999, -0.8) ,(- 0.5, -0.1), (0.4, 0.8) , (0.8, 0.999), (0.4, 0.6))
+#
+opt_ew2 = param_opt_ew2(tww, (0, 20)) 
+
+#%% VIZUALIZATION OF TIME SERIES AND PREDICTED DATA
+import matplotlib as mpl
+
+#plt.rcParams[&#39;text.usetex&#39;] = True
+fig, axs = plt.subplots(2, 2, figsize=(15, 15))
+
+plt.subplot(2, 1, 1)
+plt.plot(np.arange(2000,2020), outs[&#34;EW1&#34;].values, color= &#34;red&#34;, linewidth=&#39;4&#39;, label = &#34;Observed&#34;)
+plt.plot(np.arange(2000,2020), data[&#34;EW1&#34;].values, color=&#34;blue&#34;, linestyle = &#34;--&#34;, linewidth=&#39;4&#39;, label = &#34;GGSim&#34;)
+plt.plot(np.arange(2000,2020), opt_ew1.values, color=&#34;orange&#34;, linestyle = &#34;:&#34;, linewidth=&#39;4&#39;, label = &#34;Parameter Optimized GGSim model&#34;)
+#plt.plot(np.arange(2000,2020), np.concatenate((opt_ew11.values, opt_ew12.values)), color=&#34;grey&#34;, linestyle = &#34;:&#34;, linewidth=&#39;4&#39;) #, opt_ew13.values
+plt.plot(np.arange(2000,2020), lr_ew1, color=&#34;green&#34;, linestyle = &#34;-.&#34;, linewidth=&#39;4&#39;, label=&#34;Linear regression&#34;)
+plt.plot(np.arange(2000,2020), knn_ew1, color=&#34;black&#34;, linestyle = &#34;-.&#34;, linewidth=&#39;4&#39;, label=&#34;k-th nearest neighbors&#34;)
+#plt.plot(np.arange(2000,2020), ch_ew1, color=&#34;black&#34;, linestyle = &#34;-.&#34;, linewidth=&#39;4&#39;)
+plt.ylabel(r&#34;SDG 6.4.1: Water use efficency [\$/($m^3$/year)]&#34;)
+plt.xticks(ticks = np.arange(2000,2020,1))
+plt.legend()
+
+plt.subplot(2, 1, 2)
+plt.plot(np.arange(2000,2020), outs[&#34;EW2&#34;].values, color= &#34;red&#34;,  label = &#34;Observed&#34;, linewidth=&#39;4&#39;)
+plt.plot(np.arange(2000,2020), data[&#34;EW2&#34;].values, color =&#34;blue&#34;,linestyle = &#34;--&#34;, label = &#34;GGSim&#34;, linewidth=&#39;4&#39;)
+plt.plot(np.arange(2000,2020), opt_ew2.values, color=&#34;orange&#34;, linestyle = &#34;:&#34;, label = &#34;Parameter Optimized GGSim model&#34;, linewidth=&#39;4&#39;, )
+plt.plot(np.arange(2000,2020), lr_ew2, color=&#34;green&#34;, linestyle = &#34;-.&#34;, label=&#34;Linear regression&#34;, linewidth=&#39;4&#39;)
+plt.plot(np.arange(2000,2020), knn_ew2, color=&#34;black&#34;, linestyle = &#34;-.&#34;, linewidth=&#39;4&#39;, label=&#34;k-th nearest neighbors&#34;)
+
+#plt.plot(np.arange(2000,2020), dl_res2, color=&#34;black&#34;, linestyle = &#34;-.&#34;, linewidth=&#39;4&#39;, label=&#34;Neural Network&#34;)
+
+#plt.plot(np.arange(2000,2020), ch_ew2, color=&#34;black&#34;, linestyle = &#34;-.&#34;, linewidth=&#39;4&#39;, label = &#34;Indirect predicted&#34;)
+plt.xlabel(&#34;Year&#34;)
+plt.ylabel(r&#34;SDG 6.4.2: Share of Freshwater Withdrawal to Freshwater Availability [%]&#34;)
+plt.xticks(ticks = np.arange(2000,2020,1))
+plt.legend()
+
+
+
+#%%Retrain model lw2 modell
+
+reg = LinearRegression().fit(ew2_data.reset_index(drop=True).iloc[3:13, :], outs[&#34;EW2&#34;].iloc[3:13, :])
+lr_ew22 =reg.predict(ew2_data.iloc[3::, :].reset_index(drop=True))
+
+#plt.rcParams[&#39;text.usetex&#39;] = True
+
+fig, axs = plt.subplots(1, 1, figsize=(15, 7))
+plt.plot(np.arange(2003,2020), outs[&#34;EW2&#34;].values[3::], color= &#34;red&#34;,  label = &#34;Observed&#34;, linewidth=&#39;4&#39;)
+plt.plot(np.arange(2003,2020), lr_ew2[3::], color=&#34;green&#34;, linestyle = &#34;-.&#34;, label=&#34;Linear regression&#34;, linewidth=&#39;4&#39;)
+plt.plot(np.arange(2003,2020), lr_ew22, color=&#34;c&#34;, linestyle = &#34;-.&#34;, label=&#34;Linear regression retrained&#34;, linewidth=&#39;4&#39;)
+plt.xlabel(&#34;Year&#34;)
+plt.ylabel(r&#34;SDG 6.4.2: Share of Freshwater Withdrawal to Freshwater Availability [%]&#34;)
+plt.legend()
+
+#%% VIZUALIZE SHAPLEY NETWORK
+from vizu import *
+sc_change_expl = GetShapWeight(change_expl)
+
+centralities = {}
+
+node_names = list(np.unique(ew1_data.columns.tolist() + ew2_data.columns.tolist() + list(change_expl.keys())))
+G = BuildGraph(change_expl, node_names, input_vars, shapley, row_ind = None) # CHeck vizualization.py
+g,ll = ToiGraph(G) #-.-
+
+w = [np.abs(i[0]) + 0.0000001 for i in g.es[&#34;edge_width&#34;]]
+centralities[&#34;betweenness&#34;] = {&#34;mean&#34;: g.betweenness(directed=True, weights = w)}
+centralities[&#34;closeness&#34;]  ={&#34;mean&#34;: g.closeness(vertices=None, mode = &#39;all&#39;, weights = w)}
+centralities[&#34;degree&#34;] = {&#34;mean&#34; :  g.degree(mode=&#34;ALL&#34;)}
+
+
+#marker_scaler = g.betweenness(directed=True, weights = [i[0] + 0.001 for i in g.es[&#34;weight&#34;]])
+fig_ind = Vizualize_iGraph_Plotly(g, ll,  marker_scaler = [])
+fig_dir = os.path.join(os.getcwd(), &#34;shap_backend&#34;, &#34;figs&#34;, &#34;EW&#34;)
+fig_data = fig_ind.to_dict()
+with open(os.path.join(fig_dir, &#34;shap_net_mean_None.pkl&#34;), &#34;wb&#34;) as out_file:
+    pickle.dump(fig_data, out_file)
+
+fig_ind = Vizualize_iGraph_Plotly(g, ll, marker_scaler = centralities[&#34;betweenness&#34;][&#34;mean&#34;], show_weight = False, show_node_size = True)
+fig_dir = os.path.join(os.getcwd(), &#34;shap_backend&#34;, &#34;figs&#34;, &#34;EW&#34;)
+fig_data = fig_ind.to_dict()
+with open(os.path.join(fig_dir, &#34;shap_net_mean_betweenness.pkl&#34;), &#34;wb&#34;) as out_file:
+    pickle.dump(fig_data, out_file)
+
+fig_ind = Vizualize_iGraph_Plotly(g, ll, marker_scaler = centralities[&#34;closeness&#34;][&#34;mean&#34;], show_weight = False, show_node_size = True)
+fig_dir = os.path.join(os.getcwd(), &#34;shap_backend&#34;, &#34;figs&#34;, &#34;EW&#34;)
+fig_data = fig_ind.to_dict()
+with open(os.path.join(fig_dir, &#34;shap_net_mean_closeness.pkl&#34;), &#34;wb&#34;) as out_file:
+    pickle.dump(fig_data, out_file)
+
+fig_ind = Vizualize_iGraph_Plotly(g, ll,  marker_scaler = centralities[&#34;degree&#34;][&#34;mean&#34;], show_weight = False, show_node_size = True)
+fig_dir = os.path.join(os.getcwd(), &#34;shap_backend&#34;, &#34;figs&#34;, &#34;EW&#34;)
+fig_data = fig_ind.to_dict()
+with open(os.path.join(fig_dir, &#34;shap_net_mean_degree.pkl&#34;), &#34;wb&#34;) as out_file:
+    pickle.dump(fig_data, out_file)
+
+for i in range(0, 20):
+    G = BuildGraph(change_expl, node_names, input_vars, shapley, row_ind =i)
+    g,ll = ToiGraph(G)
+    w = [np.abs(j[0]) + 0.0000001 for j in g.es[&#34;edge_width&#34;]]
+    centralities[&#34;betweenness&#34;][str(i)] = g.betweenness(directed=True, weights=w)
+    centralities[&#34;closeness&#34;][str(i)] = g.closeness(mode=&#39;all&#39;, weights=w)
+    centralities[&#34;degree&#34;][str(i)] =  g.degree(mode=&#34;ALL&#34;)
+
+    fig_ind = Vizualize_iGraph_Plotly(g, ll,  marker_scaler = [])
+    fig_data = fig_ind.to_dict()
+    with open(os.path.join(fig_dir, f&#34;shap_net_{i}_None.pkl&#34;), &#34;wb&#34;) as out_file:
+       pickle.dump(fig_data, out_file)
+
+    fig_ind = Vizualize_iGraph_Plotly(g, ll,  marker_scaler = centralities[&#34;betweenness&#34;][str(i)], show_weight = False, show_node_size = True)
+    fig_data = fig_ind.to_dict()
+    with open(os.path.join(fig_dir, f&#34;shap_net_{i}_betweenness.pkl&#34;), &#34;wb&#34;) as out_file:
+       pickle.dump(fig_data, out_file)
+
+
+    fig_ind = Vizualize_iGraph_Plotly(g, ll,  marker_scaler = centralities[&#34;closeness&#34;][str(i)], show_weight = False, show_node_size = True)
+    fig_data = fig_ind.to_dict()
+    with open(os.path.join(fig_dir, f&#34;shap_net_{i}_closeness.pkl&#34;), &#34;wb&#34;) as out_file:
+       pickle.dump(fig_data, out_file)
+
+
+    fig_ind = Vizualize_iGraph_Plotly(g, ll,  marker_scaler = centralities[&#34;degree&#34;][str(i)], show_weight = False, show_node_size = True)
+    fig_data = fig_ind.to_dict()
+    with open(os.path.join(fig_dir, f&#34;shap_net_{i}_degree.pkl&#34;), &#34;wb&#34;) as out_file:
+       pickle.dump(fig_data, out_file)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="main_v6.AIRi"><code class="name flex">
+<span>def <span class="ident">AIRi</span></span>(<span>X)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def AIRi(X):
+    return X.iloc[:, 1] * X.loc[:, &#34;AIR&#34;]</code></pre>
+</details>
+</dd>
+<dt id="main_v6.AWU"><code class="name flex">
+<span>def <span class="ident">AWU</span></span>(<span>X)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def AWU(X):
+    return X</code></pre>
+</details>
+</dd>
+<dt id="main_v6.CI"><code class="name flex">
+<span>def <span class="ident">CI</span></span>(<span>X)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def CI(X): #ICA, AIR
+    params =  data[&#34;ICA&#34;].reset_index(drop=True).iloc[idx].values[0] 
+    return params/X.loc[:, [&#34;AIR&#34;]].reset_index(drop = True)</code></pre>
+</details>
+</dd>
+<dt id="main_v6.Cr"><code class="name flex">
+<span>def <span class="ident">Cr</span></span>(<span>X)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def Cr(X): # only input PAIR
+    return 1/(1+(X/(1-X)*0.563))</code></pre>
+</details>
+</dd>
+<dt id="main_v6.ETc"><code class="name flex">
+<span>def <span class="ident">ETc</span></span>(<span>X)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def ETc(X): # Kc, CI, ETo
+    params = np.repeat(data[&#34;Kc&#34;].values, X.shape[0], axis=1).transpose()
+    y =  np.sum(params*X.iloc[:, 1::] * np.repeat(X.loc[:, [&#34;ETo&#34;]].values, 9, axis = 1), axis=1)
+    return y</code></pre>
+</details>
+</dd>
+<dt id="main_v6.EW1"><code class="name flex">
+<span>def <span class="ident">EW1</span></span>(<span>X)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def EW1(X): # inputs: TWW, AGVA, IGVA, SGVA, Cr
+    return  (X.loc[:, &#34;AGVA&#34;] * (1 - X.loc[:, &#34;Cr&#34;]) + X.loc[:, &#34;IGVA&#34;] + X.loc[:, &#34;SGVA&#34;]) / (X.loc[:, &#34;TWW&#34;]* 1e9)</code></pre>
+</details>
+</dd>
+<dt id="main_v6.EW1_wrapper"><code class="name flex">
+<span>def <span class="ident">EW1_wrapper</span></span>(<span>X)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def EW1_wrapper(X):
+    
+    n_data = X.reset_index(drop=True)
+    out_var = &#34;CI&#34;  
+    df = n_data.loc[:, [&#34;AIR&#34;]].reset_index(drop=True)
+    
+    items = data[&#34;ICA&#34;].unstack(1).columns.tolist()
+    for idx, i in enumerate(items):
+        dy = eval(out_var + &#34;(df)&#34;)
+        dy.columns =[ out_var + &#34;_&#34; + i[1]]
+        n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)
+    
+    # ETc
+    out_var = &#34;ETc&#34; 
+    df = n_data.loc[:, [&#34;ETo&#34;,
+                        &#39;CI_fruit&#39;,
+                        &#39;CI_maize&#39;,
+                        &#39;CI_pastures&#39;,
+                        &#39;CI_potatoes&#39;,
+                        &#39;CI_pulses&#39;,
+                        &#39;CI_rapeseed&#39;,
+                        &#39;CI_sugar beet&#39;,
+                        &#39;CI_sunflower&#39;,
+                        &#39;CI_vegetables&#39;]]
+    dy = eval(out_var + &#34;(df)&#34;)
+    dy.name = out_var
+    n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)
+    
+    
+    out_var = &#34;ICU&#34;
+    df = n_data.loc[:, [&#34;ETc&#34;, &#34;ETa&#34;]]   
+    dy = eval(out_var + &#34;(df)&#34;)
+    dy.name = out_var
+    n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)
+    
+    out_var = &#34;AIRi&#34;
+    df = n_data.loc[:, [&#34;AIR&#34;]].reset_index(drop=True)
+    items = [&#34;IRRTECHi_&#34; + i for i in [&#34;Drip&#34;, &#34;Sprinkler&#34;, &#34;Surface&#34;]]
+
+    for i in items:
+        dx = pd.concat((df, n_data.loc[:, [i]].reset_index(drop=True)), axis = 1)
+        dy = eval(out_var + &#34;(dx)&#34;)
+        dy.name = out_var + &#34;_&#34; + i.split(&#34;_&#34;)[1]
+        n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)
+    
+    out_var = &#34;IWRi&#34;
+    df = n_data.loc[:, [&#34;ICU&#34;]]
+    for i in data[&#34;AIRi&#34;].columns:
+        dx = pd.concat([df.reset_index(drop=True), n_data.loc[:, [i]]], axis = 1).reset_index(drop=True)
+        dy = eval(out_var + &#34;(dx)&#34;)
+        dy.name = out_var + &#34;_&#34; + i.split(&#34;_&#34;)[1]
+        n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)
+    
+    
+    out_var = &#34;IWW&#34;
+    df = n_data.loc[:, [&#34;IWRi_Drip&#34;, &#34;IWRi_Sprinkler&#34;, &#34;IWRi_Surface&#34;, &#34;Arice&#34;]] 
+    dy = eval(out_var + &#34;(df)&#34;)
+    dy.name = out_var
+    n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)
+    
+    out_var = &#34;AWU&#34;
+    df = n_data.loc[:, [&#34;IWW&#34;]]
+    dy = eval(out_var + &#34;(df)&#34;)
+    dy.columns = [out_var]
+    n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)
+    
+    out_var = &#34;MWU&#34;
+    df = n_data.loc[:, [&#34;WP&#34;, &#34;GDPC&#34;, &#34;Pop&#34;]]
+    dy = eval(out_var + &#34;(df)&#34;)
+    dy.name = out_var
+    n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)
+
+    out_var = &#34;TWW&#34;
+    df = n_data.loc[:, [&#34;MWU&#34;, &#34;AWU&#34;, &#34;IWU&#34;]].reset_index(drop = True)
+    dy = eval(out_var + &#34;(df)&#34;)
+    dy.name = out_var
+    n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)    
+
+    out_var = &#34;PAIR&#34;
+    df = n_data.loc[:, [&#34;CL&#34;]]
+    dy = eval(out_var + &#34;(df)&#34;)
+    dy.columns = [out_var]
+    n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)  
+    
+    out_var = &#34;Cr&#34;
+    df = df = n_data.loc[:, [&#34;PAIR&#34;]]
+    dy = eval(out_var + &#34;(df)&#34;)
+    dy.columns = [out_var]
+    n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)
+    
+    out_var = &#34;EW1&#34;
+    df = n_data.loc[:, [&#34;TWW&#34;, &#34;AGVA&#34;, &#34;IGVA&#34;, &#34;SGVA&#34;, &#34;Cr&#34;]] 
+    dy = eval(out_var + &#34;(df)&#34;)
+    dy.name = out_var
+    
+    return dy</code></pre>
+</details>
+</dd>
+<dt id="main_v6.EW2"><code class="name flex">
+<span>def <span class="ident">EW2</span></span>(<span>X)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def EW2(X): # TWW, TFA, EFR
+    params = data[&#34;EFR&#34;].iloc[0][0]
+    return X.loc[:, &#34;TWW&#34;] / (X.loc[:, &#34;TFA&#34;] -params)*1e2 </code></pre>
+</details>
+</dd>
+<dt id="main_v6.EW2_wrapper"><code class="name flex">
+<span>def <span class="ident">EW2_wrapper</span></span>(<span>X)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def EW2_wrapper(X):
+    n_data = X.reset_index(drop=True)
+    out_var = &#34;CI&#34;  
+    df = n_data.loc[:, [&#34;AIR&#34;]].reset_index(drop=True)
+    
+    items = data[&#34;ICA&#34;].unstack(1).columns.tolist()
+    for idx, i in enumerate(items):
+        dy = eval(out_var + &#34;(df)&#34;)
+        dy.columns = [out_var + &#34;_&#34; + i[1]]
+        n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)
+    
+    # ETc
+    out_var = &#34;ETc&#34; 
+    df = n_data.loc[:, [&#34;ETo&#34;,
+                        &#39;CI_fruit&#39;,
+                        &#39;CI_maize&#39;,
+                        &#39;CI_pastures&#39;,
+                        &#39;CI_potatoes&#39;,
+                        &#39;CI_pulses&#39;,
+                        &#39;CI_rapeseed&#39;,
+                        &#39;CI_sugar beet&#39;,
+                        &#39;CI_sunflower&#39;,
+                        &#39;CI_vegetables&#39;]]
+    dy = eval(out_var + &#34;(df)&#34;)
+    dy.name = out_var
+    n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)
+    
+    
+    out_var = &#34;ICU&#34;
+    df = n_data.loc[:, [&#34;ETc&#34;, &#34;ETa&#34;]]   
+    dy = eval(out_var + &#34;(df)&#34;)
+    dy.name = out_var
+    n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)
+    
+    out_var = &#34;AIRi&#34;
+    df = n_data.loc[:, [&#34;AIR&#34;]].reset_index(drop=True)
+    items = [&#34;IRRTECHi_&#34; + i for i in [&#34;Drip&#34;, &#34;Sprinkler&#34;, &#34;Surface&#34;]]
+
+    for i in items:
+        dx = pd.concat((df, n_data.loc[:, [i]].reset_index(drop=True)), axis = 1)
+        dy = eval(out_var + &#34;(dx)&#34;)
+        dy.name = out_var + &#34;_&#34; + i.split(&#34;_&#34;)[1]
+        n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)
+    
+    out_var = &#34;IWRi&#34;
+    df = n_data.loc[:, [&#34;ICU&#34;]]
+    for i in data[&#34;AIRi&#34;].columns:
+        dx = pd.concat([df.reset_index(drop=True), n_data.loc[:, [i]]], axis = 1).reset_index(drop=True)
+        dy = eval(out_var + &#34;(dx)&#34;)
+        dy.name = out_var + &#34;_&#34; + i.split(&#34;_&#34;)[1]
+        n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)
+    
+    
+    out_var = &#34;IWW&#34;
+    df = n_data.loc[:, [&#34;IWRi_Drip&#34;, &#34;IWRi_Sprinkler&#34;, &#34;IWRi_Surface&#34;, &#34;Arice&#34;]] 
+    dy = eval(out_var + &#34;(df)&#34;)
+    dy.name = out_var
+    n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)
+    
+    out_var = &#34;AWU&#34;
+    df = n_data.loc[:, [&#34;IWW&#34;]]
+    dy = eval(out_var + &#34;(df)&#34;)
+    dy.columns = [out_var]
+    n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)
+    
+    out_var = &#34;AWU&#34;
+    df = n_data.loc[:, [&#34;IWW&#34;]]
+    dy = eval(out_var + &#34;(df)&#34;)
+    dy.columns = [out_var]
+    n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)
+    
+    out_var = &#34;MWU&#34;
+    df = n_data.loc[:, [&#34;WP&#34;, &#34;GDPC&#34;, &#34;Pop&#34;]]
+    dy = eval(out_var + &#34;(df)&#34;)
+    dy.name = out_var
+    n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)
+
+    out_var = &#34;TWW&#34;
+    df = n_data.loc[:, [&#34;MWU&#34;, &#34;AWU&#34;, &#34;IWU&#34;]].reset_index(drop = True)
+    dy = eval(out_var + &#34;(df)&#34;)
+    dy.name = out_var
+    n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)    
+    
+    out_var = &#34;TRF&#34;
+    df = n_data.loc[:, [&#34;IRWR&#34;, &#34;ERWR&#34;]]
+    dy = eval(out_var + &#34;(df)&#34;)
+    dy.name = out_var
+    n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)    
+    
+    out_var = &#34;TNCW&#34;
+    df = n_data.loc[:, [&#34;DW&#34;, &#34;TW&#34;]] 
+    dy = eval(out_var + &#34;(df)&#34;)
+    dy.name = out_var
+    n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)   
+    
+    out_var = &#34;TFA&#34;
+    df = n_data.loc[:, [&#34;TRF&#34;, &#34;TNCW&#34;]]
+    dy = eval(out_var + &#34;(df)&#34;)
+    dy.name = out_var
+    n_data = pd.concat((n_data, dy.reset_index(drop=True)), axis = 1)
+    
+    out_var = &#34;EW2&#34;
+    df = n_data.loc[:, [&#34;TWW&#34;, &#34;TFA&#34;]]
+    dy = eval(out_var + &#34;(df)&#34;)
+    dy.name = out_var
+    return dy</code></pre>
+</details>
+</dd>
+<dt id="main_v6.ICU"><code class="name flex">
+<span>def <span class="ident">ICU</span></span>(<span>X)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def ICU(X):
+    return np.abs(X.loc[:, &#34;ETc&#34;] - X.loc[:, &#34;ETa&#34;])</code></pre>
+</details>
+</dd>
+<dt id="main_v6.IWRi"><code class="name flex">
+<span>def <span class="ident">IWRi</span></span>(<span>X)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def IWRi(X): # ICU, AIRi - changes
+    return 1e-9 * ha_to_m2 * mmyear_to_m3year *  X.loc[:, &#34;ICU&#34;] * X.iloc[:, 1]</code></pre>
+</details>
+</dd>
+<dt id="main_v6.IWW"><code class="name flex">
+<span>def <span class="ident">IWW</span></span>(<span>X)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def IWW(X): # IWRi! Arice, IRRTECHEFFi
+    params =  np.repeat(data[&#34;IRRTECHEFFi&#34;].values, X.shape[0], axis=1).transpose()# np.multiply( ,  np.repeat(data[&#34;CE&#34;].values, X.shape[0], axis=1).transpose())
+    return np.sum(X.iloc[:, 0:3]/params, axis = 1) + X.loc[:, &#34;Arice&#34;]* height_rice</code></pre>
+</details>
+</dd>
+<dt id="main_v6.MWU"><code class="name flex">
+<span>def <span class="ident">MWU</span></span>(<span>X)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def MWU(X):
+    return np.exp(-0.9522) *  X.loc[:, &#34;WP&#34;]**(- 0.3174)  * X.loc[:, &#34;GDPC&#34;]**0.5918827 * X.loc[:, &#34;Pop&#34;]**(0.9859812) * 1e-9</code></pre>
+</details>
+</dd>
+<dt id="main_v6.PAIR"><code class="name flex">
+<span>def <span class="ident">PAIR</span></span>(<span>X)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def PAIR(X): #ICA is a parameter - only input CL
+    params = data[&#34;ICA&#34;].reset_index(drop=True)
+    return np.sum(params)[0]/X.reset_index(drop=True)</code></pre>
+</details>
+</dd>
+<dt id="main_v6.TFA"><code class="name flex">
+<span>def <span class="ident">TFA</span></span>(<span>X)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def TFA(X): # TRF, TNCW
+    return X.loc[:, &#34;TRF&#34;] + X.loc[:, &#34;TNCW&#34;]</code></pre>
+</details>
+</dd>
+<dt id="main_v6.TNCW"><code class="name flex">
+<span>def <span class="ident">TNCW</span></span>(<span>X)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def TNCW(X): # DW, TW
+    return X.loc[:, &#34;DW&#34;] + X.loc[:, &#34;TW&#34;]</code></pre>
+</details>
+</dd>
+<dt id="main_v6.TRF"><code class="name flex">
+<span>def <span class="ident">TRF</span></span>(<span>X)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def TRF(X): # IRWR, ERWR
+    return X.loc[:, &#34;IRWR&#34;] + X.loc[:,  &#34;ERWR&#34;]</code></pre>
+</details>
+</dd>
+<dt id="main_v6.TWW"><code class="name flex">
+<span>def <span class="ident">TWW</span></span>(<span>X)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def TWW(X):
+    return np.sum(X, axis=1)</code></pre>
+</details>
+</dd>
+<dt id="main_v6.param_opt_ew1"><code class="name flex">
+<span>def <span class="ident">param_opt_ew1</span></span>(<span>theta, X, ind)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def param_opt_ew1(theta, X, ind):
+    mwu = np.exp(theta[0]) *  X[&#34;WP&#34;].reset_index(drop=True).squeeze()[ind[0]:ind[1]]**(theta[1]) * X[&#34;GDPC&#34;].reset_index(drop=True).squeeze()[ind[0]:ind[1]]**theta[2]*X[&#34;Pop&#34;].reset_index(drop=True).squeeze()[ind[0]:ind[1]] **(theta[3]) * 1e-9
+    #mwu = np.exp(theta[0] + theta[1] * np.log(X[&#34;WP&#34;].reset_index(drop=True)).squeeze()[ind[0]:ind[1]] + theta[2] * np.log(X[&#34;GDPC&#34;].reset_index(drop=True)).squeeze()[ind[0]:ind[1]] + theta[3] * np.log(X[&#34;Pop&#34;].reset_index(drop=True)).squeeze()[ind[0]:ind[1]] ) * 1e-9
+    tww = mwu.reset_index(drop = True).squeeze()  + X[&#34;AWU&#34;].squeeze().reset_index(drop = True)[ind[0]:ind[1]].reset_index(drop = True)  + X[&#34;IWU&#34;].reset_index(drop = True).squeeze()[ind[0]:ind[1]].reset_index(drop = True)
+    cr = 1/(1+(X[&#34;PAIR&#34;].reset_index(drop = True)[ind[0]:ind[1]].reset_index(drop = True) /(1-X[&#34;PAIR&#34;].reset_index(drop = True))[ind[0]:ind[1]].reset_index(drop = True) *0.562))
+    return (X[&#34;AGVA&#34;].reset_index(drop = True).squeeze()[ind[0]:ind[1]].reset_index(drop = True)  * (1 - cr.squeeze().reset_index(drop = True)) 
+            + X[&#34;IGVA&#34;].reset_index(drop = True).squeeze()[ind[0]:ind[1]].reset_index(drop = True) 
+            + X[&#34;SGVA&#34;].reset_index(drop = True).squeeze()[ind[0]:ind[1]] .reset_index(drop = True))  /(tww.reset_index(drop = True) * 1e9), tww.reset_index(drop = True) </code></pre>
+</details>
+</dd>
+<dt id="main_v6.param_opt_ew2"><code class="name flex">
+<span>def <span class="ident">param_opt_ew2</span></span>(<span>TWW, ind)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def param_opt_ew2(TWW, ind):
+    return TWW / (data[&#34;TFA&#34;][ind[0]:ind[1]].reset_index(drop = True)  -data[&#34;EFR&#34;].iloc[0][0])*1e2 </code></pre>
+</details>
+</dd>
+<dt id="main_v6.param_opt_func"><code class="name flex">
+<span>def <span class="ident">param_opt_func</span></span>(<span>theta, *args)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def param_opt_func(theta, *args):
+    X, y_ew1, y_ew2, ind = args
+    y_hat_ew1, tww = param_opt_ew1(theta, X, ind)
+    y_hat_ew2 = param_opt_ew2(tww.squeeze(), ind)
+    print(np.mean((y_ew1.values-y_hat_ew1.values)**2) + np.mean((y_ew2.values-y_hat_ew2.values)**2)*20)
+    return np.mean((y_ew1.values-y_hat_ew1.values)**2) + np.mean((y_ew2.values-y_hat_ew2.values)**2)*20</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="two-column">
+<li><code><a title="main_v6.AIRi" href="#main_v6.AIRi">AIRi</a></code></li>
+<li><code><a title="main_v6.AWU" href="#main_v6.AWU">AWU</a></code></li>
+<li><code><a title="main_v6.CI" href="#main_v6.CI">CI</a></code></li>
+<li><code><a title="main_v6.Cr" href="#main_v6.Cr">Cr</a></code></li>
+<li><code><a title="main_v6.ETc" href="#main_v6.ETc">ETc</a></code></li>
+<li><code><a title="main_v6.EW1" href="#main_v6.EW1">EW1</a></code></li>
+<li><code><a title="main_v6.EW1_wrapper" href="#main_v6.EW1_wrapper">EW1_wrapper</a></code></li>
+<li><code><a title="main_v6.EW2" href="#main_v6.EW2">EW2</a></code></li>
+<li><code><a title="main_v6.EW2_wrapper" href="#main_v6.EW2_wrapper">EW2_wrapper</a></code></li>
+<li><code><a title="main_v6.ICU" href="#main_v6.ICU">ICU</a></code></li>
+<li><code><a title="main_v6.IWRi" href="#main_v6.IWRi">IWRi</a></code></li>
+<li><code><a title="main_v6.IWW" href="#main_v6.IWW">IWW</a></code></li>
+<li><code><a title="main_v6.MWU" href="#main_v6.MWU">MWU</a></code></li>
+<li><code><a title="main_v6.PAIR" href="#main_v6.PAIR">PAIR</a></code></li>
+<li><code><a title="main_v6.TFA" href="#main_v6.TFA">TFA</a></code></li>
+<li><code><a title="main_v6.TNCW" href="#main_v6.TNCW">TNCW</a></code></li>
+<li><code><a title="main_v6.TRF" href="#main_v6.TRF">TRF</a></code></li>
+<li><code><a title="main_v6.TWW" href="#main_v6.TWW">TWW</a></code></li>
+<li><code><a title="main_v6.param_opt_ew1" href="#main_v6.param_opt_ew1">param_opt_ew1</a></code></li>
+<li><code><a title="main_v6.param_opt_ew2" href="#main_v6.param_opt_ew2">param_opt_ew2</a></code></li>
+<li><code><a title="main_v6.param_opt_func" href="#main_v6.param_opt_func">param_opt_func</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

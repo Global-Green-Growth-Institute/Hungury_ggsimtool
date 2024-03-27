@@ -1,0 +1,17 @@
+{
+    "Energy_model": {
+        "description": "Share of renewable energy is a percentage of electricity generated from clean energy sources and the total electricity generated within a country. This variable allows for the determination of a country's dependency on clean energy for electricity generation.",
+        "display_name": "Share of renewables in final electricity generation",
+        "model": "Share_model",
+        "model_group": "Energy",
+        "indicator": "",
+        "status": "🚧",
+        "source": [
+            "https://www.iea.org/data-and-statistics/data-tables/?country=HUNGARY&energy=Electricity&year=2020",
+            "https://data.worldbank.org/",
+            "http://www.mekh.hu/data-of-the-hungarian-electricity-system-2019",
+            "https://population.un.org/wup/Country-Profiles/",
+            "https://www.sciencedirect.com/science/article/pii/S0038092X07000229"
+                 ]    
+    }
+}

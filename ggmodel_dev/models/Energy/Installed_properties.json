@@ -1,0 +1,17 @@
+{
+    "Installed_model": {
+        "description": "The variable denotes the capacity of renewable energy system (solar large and small scare, wind, biomass, geothermal, and hydro) that a country possesses for energy generation. The larger the capacity of renewable energy systems, the greater is the energy produced from clean energy sources.",
+        "display_name": "Installed renewable energy capacity ",
+        "model":"Installed_model",
+        "model_group": "Energy",
+        "indicator": "Installed renewable energy capacity",
+        "status": "🚧",
+        "source": [
+            "https://www.iea.org/data-and-statistics/data-tables/?country=HUNGARY&energy=Electricity&year=2020",
+            "https://data.worldbank.org/",
+            "http://www.mekh.hu/data-of-the-hungarian-electricity-system-2019",
+            "https://population.un.org/wup/Country-Profiles/",
+            "https://www.sciencedirect.com/science/article/pii/S0038092X07000229"
+                 ]    
+    }
+}

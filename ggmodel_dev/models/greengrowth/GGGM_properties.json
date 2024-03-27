@@ -1,0 +1,11 @@
+{
+    "GGGM_model": {
+        "description": "This model is the Hungary model. It includes all the sectorial sub models",
+        "display_name": "Hungary Model",
+        "model": "GGGM_model",
+        "model_group": "Green Growth",
+        "indicator": "GGI",
+        "status":  "🚧",
+        "source": ["see submodels"]
+    }
+}
